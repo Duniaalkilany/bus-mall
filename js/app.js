@@ -1,9 +1,9 @@
 'use strict'
- let randomIndex ;
+  let randomIndex ;
  // global array for the img used in each iteration 
 let image= [1, 2, 3 ,4,5,6];
 //global array for the objects 
-let allProducts = [];
+ let allProducts = [];
 let imgUsed =['','',''];
 // global array for products name 
 let productsNames =[];
@@ -64,35 +64,40 @@ new product ('wine-glass','img/wine-glass.jpg')
 //function to generate random index
 function generateRandomIndex (){
       // generate a random number 0-18
-      return Math.floor(Math.random() * allProducts.length);
+     return Math.floor(Math.random() *allProducts.length);
+    
         }
   
-     
+     console.log('47',generateRandomIndex ());
 
 
-console.log(Math.floor(Math.random() *allProducts.length ));
+//console.log(Math.floor(Math.random() *allProducts.length ));
 
 
 //function to render images 
 function renderThreeImages (){
 
  
-leftImageIndex = generateRandomIndex ();
-console.log('44',leftImageIndex);
-middleImageIndex =generateRandomIndex ();
- rightImageIndex =generateRandomIndex ();
+leftImageIndex = generateRandomIndex();
+//console.log('44',leftImageIndex);
+middleImageIndex =generateRandomIndex();
+ rightImageIndex =generateRandomIndex();
 
  while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
     middleImageIndex=generateRandomIndex ();
     rightImageIndex=generateRandomIndex ();
+   
  }
- while(imgUsed.includes(allProducts[leftImageIndex].name)||imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
-  renderThreeImages ();
- }
- imgUsed[0]=allProducts[leftImageIndex].name;
- imgUsed[1]=allProducts[middleImageIndex].name;
- imgUsed[2]=allProducts[rightImageIndex].name;
- console.log(imgUsed);
+
+ /*while(imgUsed.includes(allProducts[leftImageIndex].name)|| imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
+      renderThreeImages ();
+     }
+     imgUsed[0]=allProducts[leftImageIndex].name;
+     imgUsed[1]=allProducts[middleImageIndex].name;
+     imgUsed[2]=allProducts[rightImageIndex].name;
+     console.log(imgUsed);*/
+     
+ 
  
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
