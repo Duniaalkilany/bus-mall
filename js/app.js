@@ -88,6 +88,7 @@ middleImageIndex =generateRandomIndex();
     rightImageIndex=generateRandomIndex ();
    
  }
+ chartjs
 
  /*while(imgUsed.includes(allProducts[leftImageIndex].name)|| imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
       renderThreeImages ();
@@ -97,7 +98,15 @@ middleImageIndex =generateRandomIndex();
      imgUsed[2]=allProducts[rightImageIndex].name;
      console.log(imgUsed);*/
      
- 
+
+ /*while(imgUsed.includes(allProducts[leftImageIndex].name)||imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
+  renderThreeImages ();
+ }
+ imgUsed[0]=allProducts[leftImageIndex].name;
+ imgUsed[1]=allProducts[middleImageIndex].name;
+ imgUsed[2]=allProducts[rightImageIndex].name;
+ console.log(imgUsed);*/
+ main
  
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
