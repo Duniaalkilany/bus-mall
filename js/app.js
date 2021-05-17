@@ -86,13 +86,13 @@ middleImageIndex =generateRandomIndex ();
     middleImageIndex=generateRandomIndex ();
     rightImageIndex=generateRandomIndex ();
  }
- while(imgUsed.includes(allProducts[leftImageIndex].name)||imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
+ /*while(imgUsed.includes(allProducts[leftImageIndex].name)||imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
   renderThreeImages ();
  }
  imgUsed[0]=allProducts[leftImageIndex].name;
  imgUsed[1]=allProducts[middleImageIndex].name;
  imgUsed[2]=allProducts[rightImageIndex].name;
- console.log(imgUsed);
+ console.log(imgUsed);*/
  
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
