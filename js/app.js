@@ -1,8 +1,16 @@
 'use strict'
-
-
+ let randomIndex ;
+ // global array for the img used in each iteration 
+let image= [1, 2, 3 ,4,5,6];
 //global array for the objects 
 let allProducts = [];
+let imgUsed =['','',''];
+// global array for products name 
+let productsNames =[];
+// global array for products votes
+let productVotes=[];
+// global array for #  of products tine shown 
+let productShown=[];
 
  let timeShown ;
 // global variables
@@ -27,7 +35,7 @@ function product (name,source){
     this.source =source;
     this.timeShown=0;
     this.votes=0
-
+    productsNames.push(this.name)
 allProducts.push(this);
 
 }
@@ -56,29 +64,39 @@ new product ('wine-glass','img/wine-glass.jpg')
 //function to generate random index
 function generateRandomIndex (){
       // generate a random number 0-18
-      let randomIndex = Math.floor(Math.random() *allProducts.length );
-    return Math.floor(Math.random() *allProducts.length );
-    
-}
+      return Math.floor(Math.random() * allProducts.length);
+        }
+  
+     
+
 
 console.log(Math.floor(Math.random() *allProducts.length ));
 
 
 //function to render images 
 function renderThreeImages (){
+
+ 
 leftImageIndex = generateRandomIndex ();
+console.log('44',leftImageIndex);
 middleImageIndex =generateRandomIndex ();
  rightImageIndex =generateRandomIndex ();
 
- while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ){
+ while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
     middleImageIndex=generateRandomIndex ();
     rightImageIndex=generateRandomIndex ();
  }
- while ( middleImageIndex=== rightImageIndex) {
-    rightImageIndex=generateRandomIndex ();
+ while(imgUsed.includes(allProducts[leftImageIndex].name)||imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
+  renderThreeImages ();
  }
+ imgUsed[0]=allProducts[leftImageIndex].name;
+ imgUsed[1]=allProducts[middleImageIndex].name;
+ imgUsed[2]=allProducts[rightImageIndex].name;
+ console.log(imgUsed);
+ 
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
+ console.log(leftImageElement.src);
  middleImageElement.src =allProducts[middleImageIndex].source;
  rightImageElement.src =allProducts[rightImageIndex].source;
 // assign the alt
@@ -114,58 +132,62 @@ function handleUserClick(event) {
       if (totalClicks < maxClicks){
         renderThreeImages();  
       }
-  /*if ( totalClicks<maxClicks ) {
   
-    if (event.target.id === 'left-image'){
-        allProducts[leftImageIndex].votes =   allProducts[leftImageIndex].votes + 1; 
-    
-    }
-    else if (event.target.id === 'middle-image'){
-        allProducts[middleImageIndex].votes =  allProducts[middleImageIndex].votes + 1; 
-    
-     
-    }
-    else {
-        allProducts[rightImageIndex].votes =  allProducts[rightImageIndex].votes + 1; 
-   
- 
-    }
-  
-  if (totalClicks<5){
-  
-    
-     renderThreeImages();}
-   
-  }*/
   else  {
     leftImageElement.removeEventListener('click', handleUserClick);
     middleImageElement.removeEventListener('click', handleUserClick);
     rightImageElement.removeEventListener('click', handleUserClick);
-    //for (var i= 0; i< allProducts.length; i++){
-        //debugger;
-        //if (allProducts[i].timeShown === 0) {
-         //percent = 0;
-        //}
-    // else {
-          //percent = Math.round(allProducts[i].votes/ allProducts[i].timeShown * 100);
-        //}
-     
-    //append list to the DOM ,getting elements 
-    let btn = document.getElementById('new')
-    btn.addEventListener('click',data);
+    
+//append list to the DOM ,getting elements 
+let btn = document.getElementById('new')
+btn.addEventListener('click',data);
 function data (event){
-    for (var i= 0; i< allProducts.length; i++){
-   let list = document.getElementById('listOfData');
- let ulEl = document.createElement('ul');
- listOfData.appendChild(ulEl);
- let liEl = document.createElement('li');
-    liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes,'+ ' and was seen ' +allProducts[i].timeShown + ' times'//+//'percent = '+ percent;
-    ulEl.appendChild(liEl);}
+  for (var i= 0; i< allProducts.length; i++){
+    let list = document.getElementById('listOfData');
+  let ulEl = document.createElement('ul');
+  listOfData.appendChild(ulEl);
+  let liEl = document.createElement('li');
+     liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes,'+ ' and was seen ' +allProducts[i].timeShown + ' times'//+//'percent = '+ percent;
+     ulEl.appendChild(liEl);}
+  for (var i= 0; i< allProducts.length; i++){
+    productVotes.push(allProducts[i].votes)
+    productShown.push(allProducts[i].timeShown)
   }
-  
+  newChart();
   }
 
+}
+}
 
+
+
+function newChart() {
+
+  let ctx = document.getElementById('myChart').getContext('2d');
+  let myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: productsNames,
+          datasets: [{
+                  label: '# of product Votes',
+                  data: productVotes,
+                  backgroundColor: 'white',
+                  borderColor: 'rgb(2, 21, 49)',
+                  borderWidth: 2
+              },
+              {
+                  label: '# of product img shown',
+                  data: productShown,
+                  backgroundColor: 'rgb(2, 21, 49)',
+                  borderColor: 'white',
+                  borderWidth: 2
+              }
+          ]
+      },
+      options: {
+
+      }
+  });
 
 }
 
