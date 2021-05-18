@@ -3,11 +3,7 @@
  // global array for the img used in each iteration 
 let image= [1, 2, 3 ,4,5,6];
 //global array for the objects 
-
  let allProducts = [];
-
-let allProducts = [];
-
 let imgUsed =[];
 // global array for products name 
 let productsNames =[];
@@ -72,18 +68,11 @@ function generateRandomIndex (){
     
         }
   
-
-
-     console.log(generateRandomIndex ());
-
-
-//console.log(Math.floor(Math.random() *allProducts.length ));
-
+  
 
 
 //function to render images 
 function renderThreeImages (){
-
 
 
 leftImageIndex = generateRandomIndex();
@@ -98,6 +87,10 @@ middleImageIndex =generateRandomIndex();
 imgUsed[0]=leftImageIndex;
 imgUsed[1]= middleImageIndex;
 imgUsed[2]=rightImageIndex;
+
+
+
+ 
 
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
@@ -159,7 +152,6 @@ function data (event){
     productShown.push(allProducts[i].timeShown)
   }
   newChart();
-  createLocalStorage();
   }
 
 }
@@ -197,26 +189,3 @@ function newChart() {
 
 }
 
-
-// Creating local storage
-
-function createLocalStorage(){
-  var stringifiedallProducts = JSON.stringify(allProducts);
-  localStorage.setItem('allProductsStorage',stringifiedallProducts );
-}
-
-//getting the items
-
-function checkLocalStorage(){
-  if (localStorage.allProductsStorage) {
-    let recoveredallProductsStorage = localStorage.getItem('allProductsStorage');
-    let parsedallProductsStorage = JSON.parse(recoveredallProductsStorage);
-    allProducts = parsedallProductsStorage;
-    renderThreeImages();
-  } else {
-    renderThreeImages();
-  }
-}
-
-
-checkLocalStorage();
