@@ -5,13 +5,21 @@ body {
 }
 
 
+#images-div{
+    margin-left: 400px;
+}
+
+
+
 img {
+    text-align: center;
     width: 250px;
     margin-right: 20px;
     height: 250px;
+  
 }
 #new{
-    margin-left:580px;
+    margin-left:740px;
     margin-top: 30px;
     height: 45px;
     width: 150px;
@@ -36,7 +44,7 @@ margin-bottom: 30px;
 font-size: 20px;
 text-align: center;
 }
-main center p {
+main p {
     font-weight: bold;
     font-size: large;
     color: white;
