@@ -4,7 +4,7 @@
 let image= [1, 2, 3 ,4,5,6];
 //global array for the objects 
  let allProducts = [];
-let imgUsed =['','',''];
+let imgUsed =[];
 // global array for products name 
 let productsNames =[];
 // global array for products votes
@@ -79,15 +79,34 @@ function renderThreeImages (){
 
  
 leftImageIndex = generateRandomIndex();
-//console.log('44',leftImageIndex);
 middleImageIndex =generateRandomIndex();
  rightImageIndex =generateRandomIndex();
 
- while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
+ while (leftImageIndex === middleImageIndex|| leftImageIndex === rightImageIndex || middleImageIndex=== rightImageIndex || imgUsed.includes(leftImageIndex) ||imgUsed.includes(middleImageIndex) || imgUsed.includes(rightImageIndex)){
+  leftImageIndex = generateRandomIndex();
+  middleImageIndex =generateRandomIndex();
+  rightImageIndex =generateRandomIndex();
+ }
+imgUsed[0]=leftImageIndex;
+imgUsed[1]= middleImageIndex;
+imgUsed[2]=rightImageIndex;
+
+
+
+ 
+ /*if (totalClicks===0){
+while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
     middleImageIndex=generateRandomIndex ();
     rightImageIndex=generateRandomIndex ();
-   
- }
+    leftImageIndex = generateRandomIndex();*/
+ 
+ /*imgUsed[0]=leftImageIndex;
+ imgUsed[1]=middleImageIndex;
+ imgUsed[2]=rightImageIndex;
+
+}*/
+/*else*/
+
 
  /*while(imgUsed.includes(allProducts[leftImageIndex].name)|| imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
       renderThreeImages ();
