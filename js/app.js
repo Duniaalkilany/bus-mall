@@ -4,7 +4,7 @@
 let image= [1, 2, 3 ,4,5,6];
 //global array for the objects 
 let allProducts = [];
-let imgUsed =['','',''];
+let imgUsed =[];
 // global array for products name 
 let productsNames =[];
 // global array for products votes
@@ -67,31 +67,58 @@ function generateRandomIndex (){
       return Math.floor(Math.random() * allProducts.length);
         }
   
-     
+     console.log(generateRandomIndex ());
 
 
-console.log(Math.floor(Math.random() *allProducts.length ));
+//console.log(Math.floor(Math.random() *allProducts.length ));
 
 
 //function to render images 
 function renderThreeImages (){
-
- 
-leftImageIndex = generateRandomIndex ();
-console.log('44',leftImageIndex);
+  leftImageIndex = generateRandomIndex ();
+  console.log('44',leftImageIndex);
+  middleImageIndex =generateRandomIndex ();
+   rightImageIndex =generateRandomIndex ();
+  
+   while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
+      middleImageIndex=generateRandomIndex ();
+      rightImageIndex=generateRandomIndex ();
+      leftImageIndex = generateRandomIndex ();}
+/*leftImageIndex = generateRandomIndex ();
 middleImageIndex =generateRandomIndex ();
  rightImageIndex =generateRandomIndex ();
 
+if (totalClicks===0){
  while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
     middleImageIndex=generateRandomIndex ();
     rightImageIndex=generateRandomIndex ();
- }
- /*while(imgUsed.includes(allProducts[leftImageIndex].name)||imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
+    leftImageIndex = generateRandomIndex ();
+ }imgUsed[0]=leftImageIndex;
+ imgUsed[1]=middleImageIndex;
+ imgUsed[2]=rightImageIndex;
+}else{ 
+  while(leftImageIndex===middleImageIndex||
+    leftImageIndex=== rightImageIndex || 
+    middleImageIndex=== rightImageIndex|| 
+    imgUsed.includes(leftImageIndex)||
+    imgUsed.includes(middleImageIndex)||
+    imgUsed.includes(rightImageIndex)
+  ){imgUsed[0]=leftImageIndex;
+    imgUsed[1]=middleImageIndex;
+    imgUsed[2]=rightImageIndex;}
+}*/
+
+   
+  
+  
+  /*imgUsed.includes(allProducts[leftImageIndex].name)||imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
   renderThreeImages ();
+
  }
- imgUsed[0]=allProducts[leftImageIndex].name;
- imgUsed[1]=allProducts[middleImageIndex].name;
- imgUsed[2]=allProducts[rightImageIndex].name;
+ imgUsed=[];
+ imgUsed[0]=leftImageIndex;
+ imgUsed[1]=middleImageIndex;
+ imgUsed[2]=rightImageIndex;
  console.log(imgUsed);*/
  
 // assign src
@@ -154,6 +181,7 @@ function data (event){
     productShown.push(allProducts[i].timeShown)
   }
   newChart();
+  createLocalStorage();
   }
 
 }
@@ -191,3 +219,26 @@ function newChart() {
 
 }
 
+
+// Creating local storage
+
+function createLocalStorage(){
+  var stringifiedallProducts = JSON.stringify(allProducts);
+  localStorage.setItem('allProductsStorage',stringifiedallProducts );
+}
+
+//getting the items
+
+function checkLocalStorage(){
+  if (localStorage.allProductsStorage) {
+    let recoveredallProductsStorage = localStorage.getItem('allProductsStorage');
+    let parsedallProductsStorage = JSON.parse(recoveredallProductsStorage);
+    allProducts = parsedallProductsStorage;
+    renderThreeImages();
+  } else {
+    renderThreeImages();
+  }
+}
+
+
+checkLocalStorage();
