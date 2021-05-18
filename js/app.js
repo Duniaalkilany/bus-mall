@@ -1,9 +1,9 @@
 'use strict'
- let randomIndex ;
+  let randomIndex ;
  // global array for the img used in each iteration 
 let image= [1, 2, 3 ,4,5,6];
 //global array for the objects 
-let allProducts = [];
+ let allProducts = [];
 let imgUsed =[];
 // global array for products name 
 let productsNames =[];
@@ -64,16 +64,21 @@ new product ('wine-glass','img/wine-glass.jpg')
 //function to generate random index
 function generateRandomIndex (){
       // generate a random number 0-18
-      return Math.floor(Math.random() * allProducts.length);
+     return Math.floor(Math.random() *allProducts.length);
+    
         }
   
+
      console.log(generateRandomIndex ());
 
+
+  
 
 
 
 //function to render images 
 function renderThreeImages (){
+
   leftImageIndex = generateRandomIndex ();
   middleImageIndex =generateRandomIndex ();
    rightImageIndex =generateRandomIndex ();
@@ -86,7 +91,27 @@ function renderThreeImages (){
   imgUsed[0]=leftImageIndex;
   imgUsed[1]= middleImageIndex;
   imgUsed[2]=rightImageIndex;
+
+
+
+leftImageIndex = generateRandomIndex();
+middleImageIndex =generateRandomIndex();
+ rightImageIndex =generateRandomIndex();
+
+ while (leftImageIndex === middleImageIndex|| leftImageIndex === rightImageIndex || middleImageIndex=== rightImageIndex || imgUsed.includes(leftImageIndex) ||imgUsed.includes(middleImageIndex) || imgUsed.includes(rightImageIndex)){
+  leftImageIndex = generateRandomIndex();
+  middleImageIndex =generateRandomIndex();
+  rightImageIndex =generateRandomIndex();
+ }
+imgUsed[0]=leftImageIndex;
+imgUsed[1]= middleImageIndex;
+imgUsed[2]=rightImageIndex;
+
+
+
+
  
+
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
  console.log(leftImageElement.src);
@@ -147,7 +172,6 @@ function data (event){
     productShown.push(allProducts[i].timeShown)
   }
   newChart();
-  createLocalStorage();
   }
 
 }
@@ -184,6 +208,7 @@ function newChart() {
   });
 
 }
+
 
 
 // Creating local storage
