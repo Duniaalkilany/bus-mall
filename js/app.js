@@ -68,16 +68,13 @@ function generateRandomIndex (){
     
         }
   
-     console.log('47',generateRandomIndex ());
-
-
-//console.log(Math.floor(Math.random() *allProducts.length ));
+  
 
 
 //function to render images 
 function renderThreeImages (){
 
- 
+
 leftImageIndex = generateRandomIndex();
 middleImageIndex =generateRandomIndex();
  rightImageIndex =generateRandomIndex();
@@ -94,28 +91,13 @@ imgUsed[2]=rightImageIndex;
 
 
  
- /*if (totalClicks===0){
-while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
-    middleImageIndex=generateRandomIndex ();
-    rightImageIndex=generateRandomIndex ();
-    leftImageIndex = generateRandomIndex();*/
  
- /*imgUsed[0]=leftImageIndex;
- imgUsed[1]=middleImageIndex;
- imgUsed[2]=rightImageIndex;
-
-}*/
-/*else*/
+   
+ 
 
 
- /*while(imgUsed.includes(allProducts[leftImageIndex].name)|| imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
-      renderThreeImages ();
-     }
-     imgUsed[0]=allProducts[leftImageIndex].name;
-     imgUsed[1]=allProducts[middleImageIndex].name;
-     imgUsed[2]=allProducts[rightImageIndex].name;
-     console.log(imgUsed);*/
-     
+
+ 
  
  
 // assign src
