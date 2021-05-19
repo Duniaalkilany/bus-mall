@@ -94,23 +94,6 @@ function renderThreeImages (){
 
 
 
-leftImageIndex = generateRandomIndex();
-middleImageIndex =generateRandomIndex();
- rightImageIndex =generateRandomIndex();
-
- while (leftImageIndex === middleImageIndex|| leftImageIndex === rightImageIndex || middleImageIndex=== rightImageIndex || imgUsed.includes(leftImageIndex) ||imgUsed.includes(middleImageIndex) || imgUsed.includes(rightImageIndex)){
-  leftImageIndex = generateRandomIndex();
-  middleImageIndex =generateRandomIndex();
-  rightImageIndex =generateRandomIndex();
- }
-imgUsed[0]=leftImageIndex;
-imgUsed[1]= middleImageIndex;
-imgUsed[2]=rightImageIndex;
-
-
-
-
- 
 
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
