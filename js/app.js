@@ -76,6 +76,7 @@ function generateRandomIndex (){
 
 
 
+
 //function to render images 
 function renderThreeImages (){
 
@@ -91,6 +92,7 @@ function renderThreeImages (){
   imgUsed[0]=leftImageIndex;
   imgUsed[1]= middleImageIndex;
   imgUsed[2]=rightImageIndex;
+
 
 
 
