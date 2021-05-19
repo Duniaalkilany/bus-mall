@@ -157,6 +157,7 @@ function data (event){
     productShown.push(allProducts[i].timeShown)
   }
   newChart();
+  createLocalStorage();
   }
 
 }
