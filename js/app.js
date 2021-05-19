@@ -1,9 +1,9 @@
 'use strict'
- let randomIndex ;
+  let randomIndex ;
  // global array for the img used in each iteration 
 let image= [1, 2, 3 ,4,5,6];
 //global array for the objects 
-let allProducts = [];
+ let allProducts = [];
 let imgUsed =[];
 // global array for products name 
 let productsNames =[];
@@ -64,10 +64,18 @@ new product ('wine-glass','img/wine-glass.jpg')
 //function to generate random index
 function generateRandomIndex (){
       // generate a random number 0-18
-      return Math.floor(Math.random() * allProducts.length);
+     return Math.floor(Math.random() *allProducts.length);
+    
         }
   
+
      console.log(generateRandomIndex ());
+
+
+  
+
+
+
 
 //function to render images 
 function renderThreeImages (){
@@ -88,11 +96,7 @@ function renderThreeImages (){
 
 
 
-   
-  
-  
 
- 
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
  console.log(leftImageElement.src);
@@ -153,7 +157,6 @@ function data (event){
     productShown.push(allProducts[i].timeShown)
   }
   newChart();
-  createLocalStorage();
   }
 
 }
@@ -192,6 +195,7 @@ function newChart() {
 }
 
 
+
 // Creating local storage
 
 function createLocalStorage(){
@@ -214,3 +218,16 @@ function checkLocalStorage(){
 
 
 checkLocalStorage();
+
+
+//---------------form and event----------------------------
+
+/*let allProductsForm = document.getElementById('allProductsForm');
+allProductsForm.addEventListener('submit', setNumberOfRounds);
+function setNumberOfRounds (event){
+totalClicks;
+  event.preventDefault();
+  //assigning new value to totalClicks
+  let totalClicks = event.target.NumberOfRounds.value;
+  renderThreeImages();
+}*/
