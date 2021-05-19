@@ -20,7 +20,7 @@ let rightImageIndex;
 
 // global counters
 let  totalClicks = 0;
-let maxClicks =25 ;
+//let maxClicks =25 ;
 let percent ;
 
 //getting elements Globally
@@ -71,8 +71,19 @@ function generateRandomIndex (){
 
      console.log(generateRandomIndex ());
 
-
-  
+// function to to control the number of rounds 
+     let Form = document.getElementById('Form')
+     Form.addEventListener('submit', clicktoAdd);
+     let maxClicks=25
+     function clicktoAdd(event) {
+         event.preventDefault();
+         maxClicks = event.target.NumberOfAttempts.value;
+         if ( maxClicks< 25) {
+          maxClicks = event.target.NumberOfAttempts.value;}
+          else {
+              maxClicks = 25;
+         }
+     }
 
 
 
@@ -223,8 +234,8 @@ checkLocalStorage();
 
 //---------------form and event----------------------------
 
-/*let allProductsForm = document.getElementById('allProductsForm');
-allProductsForm.addEventListener('submit', setNumberOfRounds);
+/*let setting = document.getElementById('setting');
+allProductsForm.addEventListener('click', setNumberOfRounds);
 function setNumberOfRounds (event){
 totalClicks;
   event.preventDefault();

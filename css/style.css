@@ -88,3 +88,22 @@ list-style-type: circle;
 color:rgb(2, 21, 49) ;
 font-weight: bold;}
 
+#Form
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    border: solid rgb(2, 21, 49);
+    text-align: center;
+    margin-right: 40px;
+
+}
+#Form label{
+    font-size: 20px;
+    color: rgb(242, 244, 250);
+    font-weight: bolder;
+}
+body{
+    border: solid rgb(2, 21, 49);
+}
+
