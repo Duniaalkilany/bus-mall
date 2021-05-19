@@ -69,57 +69,29 @@ function generateRandomIndex (){
   
      console.log(generateRandomIndex ());
 
-
-//console.log(Math.floor(Math.random() *allProducts.length ));
-
-
 //function to render images 
 function renderThreeImages (){
+
   leftImageIndex = generateRandomIndex ();
-  console.log('44',leftImageIndex);
   middleImageIndex =generateRandomIndex ();
    rightImageIndex =generateRandomIndex ();
   
-   while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
-      middleImageIndex=generateRandomIndex ();
-      rightImageIndex=generateRandomIndex ();
-      leftImageIndex = generateRandomIndex ();}
-/*leftImageIndex = generateRandomIndex ();
-middleImageIndex =generateRandomIndex ();
- rightImageIndex =generateRandomIndex ();
+   while (leftImageIndex === middleImageIndex|| leftImageIndex === rightImageIndex || middleImageIndex=== rightImageIndex || imgUsed.includes(leftImageIndex) ||imgUsed.includes(middleImageIndex) || imgUsed.includes(rightImageIndex)){
+    leftImageIndex = generateRandomIndex();
+    middleImageIndex =generateRandomIndex();
+    rightImageIndex =generateRandomIndex();
+   }
+  imgUsed[0]=leftImageIndex;
+  imgUsed[1]= middleImageIndex;
+  imgUsed[2]=rightImageIndex;
 
-if (totalClicks===0){
- while (leftImageIndex===middleImageIndex || leftImageIndex=== rightImageIndex ||  middleImageIndex=== rightImageIndex){
-    middleImageIndex=generateRandomIndex ();
-    rightImageIndex=generateRandomIndex ();
-    leftImageIndex = generateRandomIndex ();
- }imgUsed[0]=leftImageIndex;
- imgUsed[1]=middleImageIndex;
- imgUsed[2]=rightImageIndex;
-}else{ 
-  while(leftImageIndex===middleImageIndex||
-    leftImageIndex=== rightImageIndex || 
-    middleImageIndex=== rightImageIndex|| 
-    imgUsed.includes(leftImageIndex)||
-    imgUsed.includes(middleImageIndex)||
-    imgUsed.includes(rightImageIndex)
-  ){imgUsed[0]=leftImageIndex;
-    imgUsed[1]=middleImageIndex;
-    imgUsed[2]=rightImageIndex;}
-}*/
+
+
 
    
   
   
-  /*imgUsed.includes(allProducts[leftImageIndex].name)||imgUsed.includes(allProducts[middleImageIndex].name)|| imgUsed.includes(allProducts[rightImageIndex].name)){
-  renderThreeImages ();
 
- }
- imgUsed=[];
- imgUsed[0]=leftImageIndex;
- imgUsed[1]=middleImageIndex;
- imgUsed[2]=rightImageIndex;
- console.log(imgUsed);*/
  
 // assign src
  leftImageElement.src =allProducts[leftImageIndex].source;
